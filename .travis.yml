@@ -1,19 +1,31 @@
 language: java
+os: linux
+dist: xenial
 jdk: openjdk11
+
 env:
   global:
     - secure: M51rxUyZyEWoxkH/2CBYfWwPM98SOo6PWVgYpqJJK1/d1T1TIffa8PqbYsveJnB0us57FQuQgUj+0P6JLyRYDRLj/LjoFQNYQ9++7njJb/YcgtUPGLX7mS/d0hcLDSBBDZe9nMh2YWMQ+CLJBsIjSXHOLvqNygP9P6bWOlkwU+rdg0g37HCNChtAFq9cRzXJcXjUhDdGMEGLuP4xWMuajedww9FSpP1HprBxKFfn7JuNTRghyeRwSMtKDvyWzTc4s6y51au7WYhFq2wJAQ3afrpFTxDoDr9Y6V54lYHUQwj1OU2Zr4T8wI9L+7ZsXqhtwsYDeIJ+6zkaaLPrTv4loMvhufs79WOlDxKcWsEYZinTCySeusQGKhZ2Q786u9MczHp8EoiCDZh2UBpvWQ57JeedjDi5u/HL6wn+0sd0td3vKlPBZ6DdgvUwggQDLoQx59JTkccmTYjzKkbCrHPlkUgK2YwZRWSQOE+1lDV2FV62Fyvk4J6pwbn5K517ue7TZipvHiNF+/ueMIFotCGGORIj93Nth9N9wQ0SuDRaYAiPmB0u6YyXkRk1pgXFTvaRd4VrCIrADdQvv2UFlkhh+ZhcBGlwEzj40ZC4I4RhDevGn29dXPMDpozGgVsU294sYbJOgTQFOqLdsXi9ZeEjkz2vvA8FLK4dnAAaCaiMM+M=
     - secure: kAs8zfOz11jhyLFUkElObg/7h2/ylYWFxSYv6g+1hHf3gIQDJKkexCXZejihy4QSX5UY2wT5B8JzbbJW1d0bJ3X54EIbsdaSNT+raREZnZz5eGaCV0xIUhbbeGjUU53sHDmTlkVy0NiL0uqdKMPaTt6oFn5WCpXBVgroqPeWFQ1OIfE6QQIIyKTU33FFe7xrLsF2hzpVHiiGkcn8BUBsM4qPdFobccM4b2UxP9GzuHxWCVccThudaayj2WTJX2P7l6I+7BckjUNwOPS86DSv8r09cr1bpGUSWt3xxqTXLDAcSCygE1L6fEqMbU3Xbsoi8LSrmxLng2FtdykA7EAKH49JCxkHd/uW2R6mVirZYSW3WT2wg32XH65HIR5XSiP6iCGVOGBd9SBHLWPo3DfhByggZIq/Skh+wyHBWy+oWxp3NtYw6Fb6vkcWwfd5vGz8ddDQRct2f7hcmgSxO9F3Ose9DoFOVmGe2ijN2ObsOOINGq7yK7MSVMGrOeCRt15rkYbGgeMsBLXdioxijPa8rAZdgOibw0MjgWNBrhFGfQAbsyVMTQP3+27rgF5O+1R5MIIJYbSWomMUvNguqoRMf1nTksatW8urlmdWcgqn9A/DQR8d4ihehBAC7Aag53mxTO+nuDwDLeGQKqfLyd1+Ubp2eARoJVHuxRMKJPxnoVg=
     - secure: FqaWZr9Pl/B4qYBaRhyghvawQJ4Qkjpwf+QFIWeefTCwqVPgNkYCKhFscxfhh9UQLzlTWZN+NlT4YFY2xiG0F7UFXMv0fptteXk9oOk26dFaHo7em/d+Wd8RHm58lM3LRZnZzxE35XnAgqgBMD3ux1nPv9hBVHhwhLfNiree4k4zR+KEP6Vh1khVIN9OLmlyGWJhUHhbWOCQHs/boqZ08nrJGW2i4DxkTdYpgfKOiXi0f7Qw7WLh6c5ZsQp/HKaBqgJXlFZViiqMq1VXpddoNnuM3beLav3krg60PIFX92sow4A+4ME0L+xPqqMAjJgeNeZ1JqPsRA/lica2DUOoBq/6mTbEFGTzSJs7yiHGRV1fVDJWtJQJF6xUVA2YVST+MPwSiexkIfUWGRNu5JcJykvX5qhdMhxwjexhX5y1HZzbgJXBlLJjIygsBlizvvxnkIzCXK0JX39eHemqG9hWOcsgi75sxbczO6VU0xgqZFv4qiIQvbtFx/jZ4y7aKWx4Y2JAjple4MG9TPEdMV5qE1/K9/x0l6OqrWSIseXOAt0mfErqfRlPKf+X5Mj3NC9LuopMS5hI0irwteJYfm3kFg3zA2DFWNqUa5f0KlkMFhW7Bq231r3jdWRfckRGTq0wjP02WAG4Gd7VX+zqMlkoMnGYG7xW9L72w4Ox+ndLiwA=
     - secure: WkjILpGiZmOOONc/RB1QebZ3Brf/8ACoxkmhayIcjh/Fg1NWIQWVOE73brO4axtIJTDCjoH+6pnVlqygC1A5Vrwk06wi1huLHBIGUumovpWNQK1afpkcvmHwY8uFP/xhIEIIoclm9xHeBkUp2CgkkpnyG6v17BM+lMJdPP0ZWNpMbQPgoAfPR+/i7zQMtn+XYCB/aVRQCBSs/Wm8HgRlmxd9ivGLe3I5qf0hHL1RurmFJALP+O9x+hHdyZEIZlrGtmNeXVZSlYzG3/Csg46qQEkdChB1Z5NZjjxi11EOQeOmbh3Q2+LmqNoUWVXt6ktLP1K7WhyM4fsVs+/aLTlyIs9g6RNMY3OrlHnt9U10IGRjW/288UMuelyi1JihTCMvhEDuVwJMQheLXxFjpSD9OdenhEXfOR2ItAA5/4PdZqjWLe2HvBQUx00owgKOfY683eEI6aN3l8cLagqEfCUWe72nMRKySi6kbWIpxcJuVf8lztfZNZ3ShVcAOvCVcLZqSognIpHpzUKtcYcSy0o54uilUmBcC8thKqV40KL4ehvQDQEn7z77E5NjognW7QBub8PY+0HDRneC1WOlc2IGsA65TaJJCRkpqaPxajdZNInd/MwGHY1yb4Inw3lNSsoFqvZvF5piG9TAGwYL9b99A4n0UIClZI6ySP+OwKKlvlE=
+
 cache:
   directories:
     - ~/.m2/repository
+
 before_deploy:
   - openssl aes-256-cbc -K $encrypted_abb8817777b8_key -iv $encrypted_abb8817777b8_iv -in .travis/gpg-private-key.asc.enc -out .travis/gpg-private-key.asc -d
+  - gpg --fast-import .travis/gpg-private-key.asc
+
 deploy:
-  cleanup: false
-  provider: script
-  script: ./.travis/deploy.sh
-  on:
-    branch: master
+  - provider: script
+    script:
+      - ./mvnw deploy -Pdeploy -DskipTests=true --settings .travis/mvn-settings.xml
+    on:
+      branch: master
+
+notifications:
+  email:
+    on_success: never
+    on_failure: always
