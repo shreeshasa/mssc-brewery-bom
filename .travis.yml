@@ -21,12 +21,6 @@ before_deploy:
 deploy:
   - cleanup: false
     provider: script
-    script:
-      - ./mvnw deploy -Pdeploy -DskipTests=true --settings .travis/maven-settings.xml
+    script: .travis/deploy.sh
     on:
       branch: master
-
-notifications:
-  email:
-    on_success: never
-    on_failure: always
