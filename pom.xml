@@ -271,25 +271,70 @@
           <tagNameFormat>@{project.version}</tagNameFormat>
         </configuration>
       </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-deploy-plugin</artifactId>
+        <version>2.8.2</version>
+        <configuration>
+          <skip>true</skip>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>io.fabric8</groupId>
+        <artifactId>docker-maven-plugin</artifactId>
+        <version>0.33.0</version>
+        <configuration>
+          <verbose>true</verbose>
+          <images>
+            <image>
+              <name>${docker.image.prefix}/${docker.image.name}</name>
+              <alias>${project.artifactId}</alias>
+              <build>
+                <!--copies artifact to docker build dir in target-->
+                <assembly>
+                  <descriptorRef>artifact</descriptorRef>
+                </assembly>
+                <dockerFile>Dockerfile</dockerFile>
+                <tags>
+                  <tag>latest</tag>
+                  <tag>${project.version}</tag>
+                </tags>
+              </build>
+            </image>
+          </images>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
   <profiles>
     <profile>
       <id>docker</id>
+      <activation>
+        <file>
+          <exists>src/main/docker/Dockerfile</exists>
+        </file>
+      </activation>
       <build>
         <plugins>
           <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-deploy-plugin</artifactId>
+            <version>2.8.2</version>
+            <configuration>
+              <skip>true</skip>
+            </configuration>
+          </plugin>
+          <plugin>
             <groupId>io.fabric8</groupId>
             <artifactId>docker-maven-plugin</artifactId>
-            <version>0.33.0</version>
             <executions>
               <execution>
                 <id>docker-build</id>
                 <goals>
                   <goal>build</goal>
                 </goals>
-                <phase>package</phase>
+                <phase>install</phase>
               </execution>
               <execution>
                 <id>docker-push</id>
@@ -299,26 +344,6 @@
                 <phase>deploy</phase>
               </execution>
             </executions>
-            <configuration>
-              <verbose>true</verbose>
-              <images>
-                <image>
-                  <name>${docker.image.prefix}/${docker.image.name}</name>
-                  <alias>${project.artifactId}</alias>
-                  <build>
-                    <!--copies artifact to docker build dir in target-->
-                    <assembly>
-                      <descriptorRef>artifact</descriptorRef>
-                    </assembly>
-                    <dockerFile>Dockerfile</dockerFile>
-                    <tags>
-                      <tag>latest</tag>
-                      <tag>${project.version}</tag>
-                    </tags>
-                  </build>
-                </image>
-              </images>
-            </configuration>
           </plugin>
         </plugins>
       </build>
