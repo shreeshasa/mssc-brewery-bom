@@ -22,7 +22,7 @@ deploy:
   - cleanup: false
     provider: script
     script:
-      - ./mvnw deploy -Pdeploy -DskipTests=true --settings .travis/mvn-settings.xml
+      - ./mvnw deploy -Pdeploy -DskipTests=true --settings .travis/maven-settings.xml
     on:
       branch: master
 
