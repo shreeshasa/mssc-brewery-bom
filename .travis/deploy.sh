@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # expects variables to be set:
 # - SONATYPE_USERNAME
 # - SONATYPE_PASSWORD
