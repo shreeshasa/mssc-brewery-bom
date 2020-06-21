@@ -19,7 +19,8 @@ before_deploy:
   - gpg --fast-import .travis/gpg-private-key.asc
 
 deploy:
-  - provider: script
+  - cleanup: false
+    provider: script
     script:
       - ./mvnw deploy -Pdeploy -DskipTests=true --settings .travis/mvn-settings.xml
     on:
