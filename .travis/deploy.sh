@@ -33,5 +33,7 @@ fi
 # Prepare the local keyring (requires travis to have decrypted the file beforehand)
 gpg --fast-import .travis/gpg-private-key.asc
 
+echo "Branch is ${BRANCH_NAME}"
+
 # Run the maven deploy steps
 ./mvnw deploy -Pdeploy -DskipTests=true "${TRAVIS_BUILD_DIR}/.travis/mvn-settings.xml"
