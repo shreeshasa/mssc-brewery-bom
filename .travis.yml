@@ -21,6 +21,12 @@ before_deploy:
 deploy:
   - cleanup: false
     provider: script
-    script: ./.travis/deploy.sh
+    # script: ./mvnw deploy -Pdeploy -DskipTests=true --settings .travis/maven-settings.xml
+    script: bash .travis/deploy.sh
     on:
       branch: master
+  - cleanup: false
+    provider: script
+    script: ./mvnw deploy -Pdeploy -DskipTests=true --settings .travis/maven-settings.xml
+    on:
+      branch: release
